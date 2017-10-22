@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="843.0" prefWidth="1264.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="simple.javafx.webservice.api.Controller">
+   <children>
+      <ToolBar prefHeight="110.0" prefWidth="1264.0">
+        <items>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="260.0">
+               <children>
+                <Button fx:id="shuffleButton" mnemonicParsing="false" text="Shuffle">
+                     <font>
+                        <Font name="Consolas" size="40.0" />
+                     </font>
+                  </Button>
+               </children></HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="324.0">
+               <children>
+                  <ComboBox fx:id="choose_card_back" prefHeight="72.0" prefWidth="260.0" promptText="Choose card back" visibleRowCount="11" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="234.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="48.0" prefWidth="198.0" text="SCORE">
+                     <font>
+                        <Font name="Consolas" size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="119.0">
+               <children>
+                  <Label fx:id="score" alignment="CENTER" text="0">
+                     <font>
+                        <Font name="Consolas" size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Label alignment="CENTER" text="HELP">
+               <font>
+                  <Font name="Consolas" size="40.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Click shuffle to play :)">
+                     <font>
+                        <Font name="Consolas" size="50.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Label>
+        </items>
+      </ToolBar>
+      <ImageView fx:id="card1" fitHeight="368.0" fitWidth="364.0" layoutX="57.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Card_back-Warlords.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="card2" fitHeight="368.0" fitWidth="364.0" layoutX="358.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Card_back-Warlords.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="card3" fitHeight="368.0" fitWidth="364.0" layoutX="657.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Card_back-Warlords.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="card4" fitHeight="368.0" fitWidth="364.0" layoutX="956.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Card_back-Warlords.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
