@@ -1,9 +1,5 @@
 package simple.javafx.webservice.api;
 
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.JsonNode;
-import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.http.exceptions.UnirestException;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -20,7 +16,6 @@ import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
@@ -44,14 +39,14 @@ public class Controller implements Initializable{
     @FXML
     private ImageView card4;
     private List<ImageView> cards = new ArrayList<>();
+    Map<String, String> listOfCards = new HashMap<>();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cards.add(card1); cards.add(card2); cards.add(card3); cards.add(card4);
 
-        Map<String, String> listOfCards = new HashMap<>();
         new Thread(() -> {
             try {
-                JSONArray jsonArray = getAllCardBacks("https://omgvamp-hearthstone-v1.p.mashape.com/cardbacks");
+                JSONArray jsonArray = getAllCardBacks();
                 for (int i = 0; i < jsonArray.length(); i++) {
                     choose_card_back.getItems().add(jsonArray.getJSONObject(i).getString("name"));
                     listOfCards.put(jsonArray.getJSONObject(i).getString("name"), jsonArray.getJSONObject(i).getString("img"));
@@ -73,16 +68,74 @@ public class Controller implements Initializable{
                 double a = new Random().nextDouble();
                 card.setEffect(new DropShadow(BlurType.GAUSSIAN, new Color(r, g, b, a), 100, 0.5, 0, 0));
             });
+            card.setOnMouseClicked(e -> {
+
+//                Thread thread = new Thread(()->{
+//                    Timeline timeLine = new Timeline();
+//                    Collection<KeyFrame> frames = timeLine.getKeyFrames();
+//                    Duration frameGap = Duration.millis(10);
+//                    Duration frameTime = Duration.ZERO;
+//                    for (ImageView img : cards) {
+//                        frameTime = frameTime.add(frameGap);
+//                        frames.add(new KeyFrame(frameTime, eee -> {
+//                            List<String> valuesList = new ArrayList<>(listOfCards.values());
+//                            Collections.shuffle( valuesList );
+//                            card1.setImage(new Image(valuesList.get(0)));
+//                        }));
+//                    }
+//                    timeLine.setCycleCount(10);
+//                    timeLine.play();
+//                });
+//                thread.start();
+
+                try {
+                    JSONObject jsonObject = getAllCards();
+                    for (int i = 0; i < jsonObject.length() ; i++) {
+                        //System.out.println(jsonObject.getJSONArray("Basic").getJSONObject(i).getString("name"));
+                       String jsonArray = getSingleCardByName("Ysera").getJSONObject(i).getString("img");
+                       // TODO read from arrayBySingleCard
+                     //   System.out.println(jsonArray);
+                    }
+                   } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                try {
+                    getAllCards();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            });
         }
     }
-    private JSONArray getAllCardBacks(String url) throws IOException {
+    private JSONArray getAllCardBacks() throws IOException {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url(url)
+                .url("https://omgvamp-hearthstone-v1.p.mashape.com/cardbacks")
                 .addHeader("X-Mashape-Key", "Q0ZvyGgPZfmshIFUmF1yWuxhPOPop1ON2nqjsnogXDUcMQ9Cdh")
                 .build();
         Response response = client.newCall(request).execute();
-        JSONArray jsonArray = new JSONArray(response.body().string());
-        return jsonArray;
+        return new JSONArray(response.body().string());
     }
+    private JSONObject getAllCards() throws IOException {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url("https://omgvamp-hearthstone-v1.p.mashape.com/cards")
+                .addHeader("X-Mashape-Key", "Q0ZvyGgPZfmshIFUmF1yWuxhPOPop1ON2nqjsnogXDUcMQ9Cdh")
+                .build();
+        Response response = client.newCall(request).execute();
+        //System.out.println(response.body().string());
+        return new JSONObject(response.body().string());
+    }
+    private JSONArray getSingleCardByName(String name) throws IOException {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url("https://omgvamp-hearthstone-v1.p.mashape.com/cards/"+name)
+                .addHeader("X-Mashape-Key", "Q0ZvyGgPZfmshIFUmF1yWuxhPOPop1ON2nqjsnogXDUcMQ9Cdh")
+                .build();
+        Response response = client.newCall(request).execute();
+        //System.out.println(response.body().string());
+        return new JSONArray(response.body().string());
+    }
+
+
 }
