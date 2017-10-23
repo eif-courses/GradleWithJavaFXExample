@@ -16,7 +16,7 @@ public class Main extends Application {
         Parent root = loader.load();
 
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 1264, 843));
+        primaryStage.setScene(new Scene(root, 1494, 853));
         primaryStage.show();
     }
 

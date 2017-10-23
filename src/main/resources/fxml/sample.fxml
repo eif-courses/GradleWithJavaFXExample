@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.GridPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="843.0" prefWidth="1264.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="simple.javafx.webservice.api.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="853.0" prefWidth="1494.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="simple.javafx.webservice.api.Controller">
    <children>
-      <ToolBar prefHeight="110.0" prefWidth="1264.0">
+      <ToolBar prefHeight="110.0" prefWidth="1494.0">
         <items>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="260.0">
                <children>
@@ -57,22 +57,22 @@
             </Label>
         </items>
       </ToolBar>
-      <ImageView fx:id="card1" fitHeight="368.0" fitWidth="364.0" layoutX="57.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="card1" fitHeight="465.0" fitWidth="307.0" layoutX="41.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Card_back-Warlords.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="card2" fitHeight="368.0" fitWidth="364.0" layoutX="358.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="card2" fitHeight="465.0" fitWidth="307.0" layoutX="398.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Card_back-Warlords.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="card3" fitHeight="368.0" fitWidth="364.0" layoutX="657.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="card3" fitHeight="465.0" fitWidth="307.0" layoutX="761.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Card_back-Warlords.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="card4" fitHeight="368.0" fitWidth="364.0" layoutX="956.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="card4" fitHeight="465.0" fitWidth="307.0" layoutX="1119.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Card_back-Warlords.png" />
          </image>
